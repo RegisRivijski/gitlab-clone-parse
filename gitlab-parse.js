@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const config = require('config');
 
-const gitlabOrigin = `${config.web.gitlab.schema}://${config.web.gitlab.hostname}/dashboard/projects?non_archived=true&sort=latest_activity_desc`;
+const gitlabOrigin = `${config.web.gitlab.schema}://${config.web.gitlab.hostname}/dashboard/projects?non_archived=true&sort=latest_activity_desc&archived=true`;
 
 async function main() {
   const hrefs = [];

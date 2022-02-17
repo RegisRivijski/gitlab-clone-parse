@@ -8,10 +8,9 @@ async function main() {
   const hrefs = fs.readFileSync('./hrefs.txt', 'utf-8').split('\n');
   for (const href of hrefs) {
     try {
-      const gitCommand = `git clone ${gitlabCloneOrigin}${href}`;
-      console.log(gitCommand)
+      const gitCommand = `git clone ${gitlabCloneOrigin}${href}.git`;
       shell.cd('/var/www');
-      shell.exec(`git clone ${gitlabCloneOrigin}${href}`);
+      shell.exec(gitCommand);
     } catch (e) {
       console.error(e.message);
     }
