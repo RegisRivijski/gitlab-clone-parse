@@ -1,0 +1,21 @@
+{
+  "name": "gitlab-clone-parse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gitlab-parse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "parse": "node gitlab-parse.js",
+    "parseAll": "node gitlab-parse.js && node git-clone.js",
+    "clone" : "node git-clone.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "cheerio": "^1.0.0-rc.10",
+    "config": "^3.3.7",
+    "shelljs": "^0.8.5"
+  }
+}
