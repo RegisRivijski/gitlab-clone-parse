@@ -19,7 +19,9 @@ async function main() {
       }
     })
       .then((response) => response.data)
-      .catch((e) => { console.error('mainPage', e.message) });
+      .catch((e) => {
+        console.error('mainPage', e.message);
+      });
     const $ = cheerio.load(mainPage);
     $('li div a[href].project').each((index, elem)=>{
       const href = $(elem).attr('href');
