@@ -24,7 +24,7 @@ async function main() {
     $('li div a[href].project').each((index, elem)=>{
       const href = $(elem).attr('href');
       hrefs.push(href);
-      console.log(href, hrefs.length, '...');
+      console.log(`[${hrefs.length}]\t${href}`);
     });
   }
   fs.writeFileSync('/mnt/d/Workspace/personal-projects/gitlab-clone-parse/hrefs.txt', hrefs.join('\n'));
