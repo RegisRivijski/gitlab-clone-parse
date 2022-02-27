@@ -30,6 +30,6 @@ async function main() {
     });
   }
   fs.writeFileSync('/mnt/d/Workspace/personal-projects/gitlab-clone-parse/hrefs.txt', hrefs.join('\n'));
-  console.log('Done!..');
+  console.log('Done ...');
 }
 main();
