@@ -6,7 +6,7 @@ const gitlabCloneOrigin = `${config.web.gitlab.schema}://"${config.git.userName}
 
 async function main() {
   const hrefs = fs.readFileSync('./hrefs.txt', 'utf-8').split('\n');
-  let i = 0;
+  let i = 1;
   for (const href of hrefs) {
 
     const group = href.split('/')[1];
@@ -15,6 +15,8 @@ async function main() {
     const workspacePath = '/var/www';
     const groupPath = `${workspacePath}/${group}`;
     const projectPath = `${groupPath}/${project}`;
+
+    console.log('\x1b[33m', `[${i}/${hrefs.length}]\t`, projectPath, '...', '\x1b[0m');
 
     if (!fs.existsSync(groupPath)) {
       shell.cd(workspacePath);
@@ -29,7 +31,9 @@ async function main() {
       shell.exec(`git pull ${gitlabCloneOrigin}${href}.git`);
     }
 
-    console.log('\x1b[33m', `[${++i}/${hrefs.length}]\t`, projectPath, '...', '\x1b[0m');
+    console.log('\x1b[32m', `[${i}/${hrefs.length}]\t`, projectPath, 'Done!', '\x1b[0m', '\n');
+
+    i += 1;
   }
   console.log('\x1b[36m', 'Done ...', '\x1b[0m');
 }
